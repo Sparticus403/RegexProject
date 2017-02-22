@@ -22,10 +22,10 @@ public class RegexPanel extends JPanel
 		this.baseController = baseController;
 		this.baseLayout = new SpringLayout();
 		this.submitButton = new JButton("Submit");
-		this.firstNameField = new JTextField();
-		this.lastNameField = new JTextField();
-		this.emailField = new JTextField();
-		this.phoneField = new JTextField();
+		this.firstNameField = new JTextField(5);
+		this.lastNameField = new JTextField(5);
+		this.emailField = new JTextField(5);
+		this.phoneField = new JTextField(5);
 		this.firstNameLabel = new JLabel("First Name");
 		this.lastNameLabel = new JLabel("Last Name");
 		this.phoneLabel = new JLabel("Phone #");
@@ -38,6 +38,7 @@ public class RegexPanel extends JPanel
 	
 	private void setupPanel()
 	{
+		setSize(600, 400);
 		this.setLayout(baseLayout);
 		this.add(submitButton);
 		this.add(firstNameField);
@@ -52,7 +53,24 @@ public class RegexPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.WEST, lastNameField, 10, SpringLayout.WEST, lastNameLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstNameField, 7, SpringLayout.SOUTH, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, firstNameField, 10, SpringLayout.WEST, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, phoneField, 0, SpringLayout.NORTH, firstNameField);
+		baseLayout.putConstraint(SpringLayout.NORTH, emailField, 0, SpringLayout.NORTH, firstNameField);
+		baseLayout.putConstraint(SpringLayout.NORTH, lastNameField, 0, SpringLayout.NORTH, firstNameField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, submitButton, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, submitButton, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstNameLabel, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstNameLabel, -69, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, lastNameLabel, 0, SpringLayout.NORTH, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, lastNameLabel, 45, SpringLayout.EAST, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, phoneLabel, 0, SpringLayout.NORTH, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, phoneLabel, 57, SpringLayout.EAST, lastNameLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, emailLabel, 0, SpringLayout.NORTH, firstNameLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, emailLabel, 56, SpringLayout.EAST, phoneLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, phoneField, 10, SpringLayout.WEST, phoneLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, emailField, 10, SpringLayout.WEST, emailLabel);
 	}
 	
 	private void setupListeners()
