@@ -2,9 +2,11 @@ package regex.view;
 
 import regex.controller.RegexController;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class RegexPanel extends JPanel
 {
+	private RegexFrame appFrame;
 	private RegexController baseController;
 	private SpringLayout baseLayout;
 	private JButton submitButton;
@@ -75,7 +77,49 @@ public class RegexPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				//first name
+				if(firstNameField.toString().matches("[A-Za-z]{2,30}"))
+				{
+//					JOptionPane.showMessageDialog(appFrame, "woooo");
+				}
+				else
+				{
+//					JOptionPane.showMessageDialog(appFrame, "no");
+				}
+				//last name
+				if(lastNameField.toString().matches("[A-Za-z,.'-]{2,40}"))
+				{
+					
+				}
+				else
+				{
+					
+				}
+				//email
+				if(emailField.toString().matches("^[_A-Za-z0-9-\\+]+(\\.[_a-Za-z0-9-])*@"
+						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+				{
+					
+				}
+				else
+				{
+					
+				}
+				//phone
+				if(phoneField.toString().matches("^(\+\d)*\s*(\(\d{3}\)\s*)*\d{3}(-{0,1}|\s{0,1})\d{2}(-{0,1}|\s{0,1})\d{2}$"))
+				{
+					
+				}
+				else
+				{
+					
+				}
+			}
+		});
 	}
 
 }
